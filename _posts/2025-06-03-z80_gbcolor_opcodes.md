@@ -1,3 +1,8 @@
+---
+layout: post
+title: "I lost two days because of a byte"
+date: 2025-06-03 23:00:00 +0000
+---
 # I lost two days because of a byte
 
 ## Booting
@@ -18,7 +23,7 @@ dasm boot1,$0000,$0100
 dasm boot2,$0200,$0900
 ```
 
-![MAME screen with boot ROM disassembly](img/z80_gbcolor_opcodes/mame_disassembly.png)
+![MAME screen with boot ROM disassembly](/assets/img/posts/z80_gbcolor_opcodes/mame_disassembly.png)
 
 ## First inspection
 
@@ -59,12 +64,12 @@ Lastly I thought this could be a bug in RGBDS assembler, so I went there and rev
 
 After spending hours thinking back on what could be doing this I decided to run two versions of MAME: one with the original raw bytes and another with my compiled ROM. And I found somerhing strange:
 
-![both boot ROMs side by side showing 1 byte difference](img/z80_gbcolor_opcodes/comparison.png)
+![both boot ROMs side by side showing 1 byte difference](/assets/img/posts/z80_gbcolor_opcodes/comparison.png)
 
 At $007C both instructions are the same: `ld ($FF70),a` but the instruction immediately following that one changes by 1 byte. In the case of the original raw bytes ROM (left) the next instruction is at $007E, while in my compiled ROM (right) the next instruction can be found at $007F.
 So I decided to examine these two opcodes individually, surprisingly I found that they are different:
 
-![comparing raw opcodes](img/z80_gbcolor_opcodes/raw_opcode_comparison.png)
+![comparing raw opcodes](/assets/img/posts/z80_gbcolor_opcodes/raw_opcode_comparison.png)
 
 The original boot ROM shows that `ld ($FF70),a` opcode is `E0 70` and my compiled ROM shows `EA 70 FF`. Using a [handy opcode reader](https://meganesu.github.io/generate-gb-opcodes/) for this specific CPU we can quickly find out what both instructions are doing:
 
