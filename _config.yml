@@ -18,17 +18,18 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Nicolas Videla
+title: Nicolás Videla
 description: >-
-  A personal website and blog for Nicolas Videla.
+  A personal website and blog for Nicolás Videla.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  videlanicolas
 
 # Build settings
-theme: minima
+remote_theme: videlanicolas/jekyll-dark
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -50,11 +51,6 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 author: Nicolás Videla
-
-minima:
-  skin: dark
-  social_links:
-    - { platform: github,  user_url: "https://github.com/videlanicolas" }
 
 header_pages:
   - blog.md
