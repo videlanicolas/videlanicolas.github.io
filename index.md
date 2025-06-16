@@ -6,14 +6,8 @@ layout: default
 title: Home
 ---
 
-## About Me
+Welcome to my personal page! A place where I post my thoughts, hacking, debugs, experiments and projects.
 
-Welcome to my personal page!
-
-This is a simple, minimalistic, dark-themed Jekyll site. I'm using this to share my thoughts, projects, and experiences.
-
-Feel free to explore the **Blog** section for articles and the **Projects** section to see what I've been working on.
+I'm using a dark themed Jekyll theme that you can use as well: https://github.com/videlanicolas/jekyll-dark
 
 You can find more about my professional background on [LinkedIn](https://www.linkedin.com/in/{{ site.linkedin_username }}) and my code repositories on [GitHub](https://github.com/{{ site.github_username }}).
-
-*(Social media links can be configured in _config.yml)*
